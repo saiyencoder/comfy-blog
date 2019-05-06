@@ -1,5 +1,9 @@
 @import "bootstrap";
 
+body {
+  background: #e0e0eb;
+}
+
 .navbar {
   background: #144b93 !important;
   padding: 10px;
@@ -8,4 +12,16 @@
 
 .posts-spread {
   padding: 10px;
+}
+
+.posts-header {
+  background: #144b93;
+}
+
+a:link,a:visited, .card-title { 
+  color: white;
+}
+
+.devise-card-header {
+  background: #144b93;
 }
