@@ -18,6 +18,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem "comfortable_mexican_sofa", "~> 2.0.0"
 gem 'devise'
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
