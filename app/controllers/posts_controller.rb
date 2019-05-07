@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :verify_user, only: [:edit, :update, :destroy]
 
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    flash[:warning] = "Post has been deleted"
+    flash[:danger] = "Post has been deleted"
     redirect_to posts_path
   end
 
@@ -60,7 +60,10 @@ class PostsController < ApplicationController
 
   def verify_user
     @user = current_user.posts.find_by(id: params[:id])
-    redirect_to posts_path, flash[:warning] = "Not Authorized to Access Page" if @user.nil?
+    if @user.nil?
+      flash[:danger] = "Not Authorized to Access Page" 
+      redirect_to posts_path
+    end
   end
 
 end
