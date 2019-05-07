@@ -1,3 +1,5 @@
+<%= render 'shared/errors', obj: @post %>
+
 <div class="container-fluid">
   <div class="card mx-auto border-dark mb-3" style="width: 40rem;">
     <h4 class="card-header text-center text-white devise-card-header"><%= title %></h4>
@@ -6,13 +8,13 @@
         <%= simple_form_for @post do |f| %>
           <div class="form-group">
             <div class="control-label">
-              <%= f.label :title %>
+              <%= f.label :title, required: false %>
             </div>
             <div>
               <%= f.text_field :title, class: "form-control", placeholder: "Enter Title", autofocus: true %>
             </div><br>
             <div class="control-label">
-              <%= f.label :content %>
+              <%= f.label :content, required: false %>
             </div>
             <div>
               <%= f.text_area :content, class: "form-control", placeholder: "Enter Content", rows: 10 %>
