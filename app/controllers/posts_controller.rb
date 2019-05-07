@@ -44,10 +44,14 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
+  def my_posts
+    @posts = Post.where(user_id: current_user.id )
+  end
+
   private
 
   def set_post
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:id]).order("created_at DESC")
   end
 
   def post_params

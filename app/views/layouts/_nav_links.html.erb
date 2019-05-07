@@ -1,5 +1,6 @@
 <%= link_to "Posts", posts_path, class: "nav-item nav-link text-white" %>
 <% if signed_in? %>
+  <%= link_to "My Posts", my_posts_path, class: "nav-item nav-link text-white" %>
   <%= link_to "New Post", new_post_path, class: "nav-item nav-link text-white" %>
   <%= link_to "Edit Profile", edit_user_registration_path, class: "nav-item nav-link text-white" %>
   <%= link_to "Log Out", new_post_path, class: "nav-item nav-link text-white" %>
