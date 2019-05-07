@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :verify_user, only: [:edit, :update, :destroy, :my_posts]
+  before_action :verify_user, only: [:edit, :update, :destroy]
 
   def index
     @posts = Post.all.order("created_at DESC")
@@ -46,13 +46,13 @@ class PostsController < ApplicationController
   end
 
   def my_posts
-    @posts = Post.where(user_id: current_user.id )
+    @posts = Post.where(user_id: current_user.id ).order("created_at DESC")
   end
 
   private
 
   def set_post
-    @post = Post.find(params[:id]).order("created_at DESC")
+    @post = Post.find(params[:id])
   end
 
   def post_params
@@ -61,7 +61,7 @@ class PostsController < ApplicationController
 
   def verify_user
     @user = current_user.posts.find_by(id: params[:id])
-    redirect_to posts_path, flash[:notice] = "Not Authorized to Access Page" if @user.nil?
+    redirect_to posts_path, flash[:notice] = "Not Authorized to Access Page" 
   end
 
 end

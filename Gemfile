@@ -20,9 +20,11 @@ gem "comfortable_mexican_sofa", "~> 2.0.0"
 gem 'devise'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
+gem 'pry-byebug'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
 end
 
 group :development do
