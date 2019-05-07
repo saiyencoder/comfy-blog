@@ -40,7 +40,6 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-
     flash[:warning] = "Post has been deleted"
     redirect_to posts_path
   end
@@ -61,7 +60,7 @@ class PostsController < ApplicationController
 
   def verify_user
     @user = current_user.posts.find_by(id: params[:id])
-    redirect_to posts_path, flash[:notice] = "Not Authorized to Access Page" if @user.nil?
+    redirect_to posts_path, flash[:warning] = "Not Authorized to Access Page" if @user.nil?
   end
 
 end
