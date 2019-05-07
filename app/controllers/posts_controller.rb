@@ -56,12 +56,12 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content, :user_id)
   end
 
   def verify_user
     @user = current_user.posts.find_by(id: params[:id])
-    redirect_to posts_path, flash[:notice] = "Not Authorized to Access Page" 
+    redirect_to posts_path, flash[:notice] = "Not Authorized to Access Page" if @user.nil?
   end
 
 end

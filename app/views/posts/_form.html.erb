@@ -3,7 +3,35 @@
     <h4 class="card-header text-center text-white devise-card-header"><%= title %></h4>
     <div class="card-body">
       <div class="form-group">
-        
+        <%= simple_form_for @post do |f| %>
+          <div class="form-group">
+            <div class="control-label">
+              <%= f.label :title %>
+            </div>
+            <div>
+              <%= f.text_field :title, class: "form-control", placeholder: "Enter Title", autofocus: true %>
+            </div><br>
+            <div class="control-label">
+              <%= f.label :content %>
+            </div>
+            <div>
+              <%= f.text_area :content, class: "form-control", placeholder: "Enter Content", rows: 10 %>
+            </div><br>
+            <div>
+              <%= f.text_field :user_id, class: "form-control", value: current_user.id, type: "hidden" %>
+            </div>
+          </div>
+          <div>
+            <div class="form-inline">
+              <div>
+                <%= f.submit 'Submit', class: "btn btn-primary" %>
+              </div>
+              <div class="ml-auto">
+                <%= link_to "Cancel", posts_path, class: "btn btn-warning" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
