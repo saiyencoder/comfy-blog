@@ -8,13 +8,13 @@
       <%= f.label :name, required: false %>
     </div>
     <div>
-      <%= f.text_field :name, class: "form-control", autofocus: true %>
+      <%= f.text_field :name, class: "form-control", value: current_user.name  %>
     </div><br>
     <div class="control-label">
       <%= f.label :comment, required: false %>
     </div>
     <div>
-      <%= f.text_area :comment, class: "form-control", placeholder: "Comment", rows: 5 %>
+      <%= f.text_area :comment, class: "form-control", autofocus: true, placeholder: "Comment", rows: 5 %>
     </div><br>
   </div>
   <div>

@@ -20,15 +20,18 @@
   <% end %>
 </div><br>
 
+
 <section class="section comments">
   <div class="container">
-    <h2 class="subtitle is-5"><strong><%= @post.comments.count %> Comments</strong></h2>
+    <h2 class="subtitle is-5"><strong><%= pluralize(@post.comments.count, "Comment") %></strong></h2>
     <%= render @post.comments %>
-    <div class="comment-form">
-      <hr />
-      <h3 class="subtitle is-3">Leave a reply</h3>
-      <%= render 'comments/form' %>
-    </div>
+    <% if signed_in? %>
+      <div class="comment-form">
+        <hr />
+        <h3 class="subtitle is-3">Leave a reply</h3>
+        <%= render 'comments/form' %>
+      </div>
+    <% end %>
   </div>
 </section>
 
