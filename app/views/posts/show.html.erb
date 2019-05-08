@@ -9,29 +9,25 @@
       <%= @post.content %>
     </p>
   </div>
-</div><br>
-
-
-<div class="text-center">
-  <%= link_to "Back", posts_path, class: "btn btn-info" %>
   <% if signed_in? && current_user.id == @post.user_id %>
-    <%= link_to "Edit", edit_post_path, class: "btn btn-warning" %>
-    <%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+    <div class="card-footer text-center">
+      <%= link_to "Edit", edit_post_path, class: "btn btn-warning" %>
+      <%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+    </div>
   <% end %>
-</div><br>
+</div><br><br>
 
 
-<section class="section comments">
-  <div class="container">
-    <h2 class="subtitle is-5"><strong><%= pluralize(@post.comments.count, "Comment") %></strong></h2>
-    <%= render @post.comments %>
-    <% if signed_in? %>
-      <div class="comment-form">
-        <hr />
-        <h3 class="subtitle is-3">Leave a reply</h3>
-        <%= render 'comments/form' %>
-      </div>
-    <% end %>
-  </div>
-</section>
+
+<div class="container">
+  <h2 class="comment-title text-center"><strong><%= pluralize(@post.comments.count, "Comment") %></strong></h2>
+  <%= render @post.comments %>
+  <% if signed_in? %>
+    <div class="comment-form">
+      <hr />
+      <h3 class="subtitle is-3">Leave a reply</h3>
+      <%= render 'comments/form' %>
+    </div>
+  <% end %>
+</div>
 

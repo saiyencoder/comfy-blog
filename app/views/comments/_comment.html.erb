@@ -1,15 +1,13 @@
-<div class="box">
-  <article class="media">
-    <div class="media-content">
-      <div class="content">
-        <p>
-          <strong><%= comment.name %>: </strong>
-          <%= comment.comment %>
-        </p>
-      </div>
-    </div>
+<div class="card mx-auto" style="width: 50rem;">
+  <div class="card-body">
+    <h5><%= comment.name %>:</h5><br>
+    <h6 class="card-subtitle mb-2 text-muted"><%= comment.comment %></h6>
+    <p class="card-text">
+    </p>
     <% if signed_in? && comment.name == current_user.name %>      
-      <%= link_to 'Delete', [comment.post, comment], method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
+      <div class="text-right">
+        <%= link_to 'Delete', [comment.post, comment], method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
+      </div>
     <% end %>
-  </article>
+  </div>
 </div>
