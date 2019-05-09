@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  comfy_route :cms_admin, path: "/admin"
+  # Ensure that this route is defined last
+  comfy_route :cms, path: "/"
   devise_for :users
   resources :posts do
     # Comments is a nested route to Posts
