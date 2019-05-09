@@ -1,4 +1,8 @@
-<h1 class="text-center">Posts</h1>
+<div class="card text-white text-center mb-3 mx-auto post-index-card" style="max-width: 18rem;">
+  <div class="card-header">
+    <h1>Posts</h1>
+  </div>
+</div><br>
 
 <% @posts.each_slice(3) do |post| %>
   <div class="row container-fluid posts-spread mx-auto">

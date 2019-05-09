@@ -15,9 +15,7 @@
       <%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
     </div>
   <% end %>
-</div><br><br>
-
-
+</div><br><br><br>
 
 <div class="container">
   <h2 class="comment-title text-center"><strong><%= pluralize(@post.comments.count, "Comment") %></strong></h2>
@@ -25,8 +23,10 @@
   <% if signed_in? %>
     <div class="comment-form">
       <hr />
-      <h3 class="subtitle is-3">Leave a reply</h3>
-      <%= render 'comments/form' %>
+      <h3 class="text-center">Leave a reply</h3><br>
+      <div class="mx-auto" style="width: 50rem;">
+        <%= render 'comments/form' %>
+      </div>
     </div>
   <% end %>
 </div>

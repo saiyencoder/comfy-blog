@@ -1,4 +1,4 @@
-<h1 class="text-center"><%= current_user.name.capitalize %> Posts</h1>
+<h1 class="text-center"><%= current_user.name.capitalize %> Posts</h1><br>
 
 <% @posts.each_slice(3) do |post| %>
   <div class="row container-fluid posts-spread mx-auto">
@@ -19,4 +19,17 @@
       </div>
     <% end %>
   </div>
+<% end %>
+
+<% if @posts.empty? %>
+  <div class="card mx-auto" style="width: 25rem;">
+    <div class="card-body">
+      <p class="card-text text-center">
+        You have not posted a blog post yet
+      </p>
+    </div>
+    <div class="card-footer text-center">
+      <%= link_to 'Create Post', new_post_path, class: "btn btn-info btn-sm" %>
+    </div>
+  </div><br>
 <% end %>
